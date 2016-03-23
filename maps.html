@@ -1,6 +1,8 @@
 <html><head>
-<title>Polymaps - Menu</title> 
+<title>Polymaps - Maps</title>
+
 <link rel="shortcut icon" href="http://samasaurus6.github.io/images/favicon.png">
+
 <link rel="alternate" type="application/rss+xml" href="{RSS}">
 <link href='https://fonts.googleapis.com/css?family=Work+Sans:300,600' rel='stylesheet' type='text/css'>
 
@@ -19,9 +21,24 @@ h2 { margin:10px; text-transform:uppercase; font:300 25px/25px 'Ravi Prakash', c
 
 a, a:hover {
     text-decoration:none;
-    color:#5b9f86; 
+    color:#fff;; 
     -webkit-transition:.35s;
     transition:.35s; }
+    
+#text {position:Absolute;
+top:0;
+margin-top:550px;
+width:100%;
+right:0;
+text-align:center;
+font-size:50px;
+letter-spacing:2px;
+text-transform:uppercase;}
+#text a {margin: 0 3px;}
+
+#info { width:300px; bottom:15px; right:15px; background:transparent; text-align:center; font:30px 'Ravi Prakash'; }
+#info:hover { background:#2a2a2a; color:#fff; }
+
 
 #q { height:100%; }
 .sect {
@@ -70,7 +87,7 @@ a, a:hover {
 .title {
     z-index:1300601;
     position:absolute;
-    padding:0 10px;
+    padding:10px;
     top:calc(45% - 40px);
     width:100%;
     height:40px;
@@ -78,15 +95,16 @@ a, a:hover {
     color:#fff;
     text-align:center;
     text-transform:uppercase;
-    font:50px/1 'Ravi Prakash', cursive; /* change TITLE TEXT SIZE */
+    background:rgba(0,0,0,0.65);
+    font:30px/1 'Ravi Prakash', cursive; /* change TITLE TEXT SIZE */
     -ms-transform:translate3d(0,40px,0);
     -webkit-transform:translate3d(0,40px,0);
     transform:translate3d(0,40px,0);
     -webkit-transition:.35s;
     transition:.35s; }
 
-#info { z-index:1300602; position:fixed; width:20px; bottom:15px; right:15px; background:#fff; color:#000; text-align:center; font:15px/30px 'Ravi Prakash'; }
-#info:hover { background:#000; color:#fff; }
+#info { z-index:1300602; position:fixed; width:200px; bottom:15px; right:15px; color:#B6B6B6; text-align:center; font:50px/30px 'Ravi Prakash'; }
+#info:hover { background:transparent ; color:#fff ; }
     
 .desc {
     z-index:1300602;
@@ -100,9 +118,9 @@ a, a:hover {
     right:0;
     top:calc(45% + 20px);
     text-align:center;
-    background:rgba(0,0,0,.25);
+    background:rgba(0,0,0,0.65);
     color:#fff;
-    font:30px 'Aldrich', sans-serif; /* change DESCRIPTION TEXT SIZE and FONT */
+    font:20px 'Aldrich', sans-serif;  */
     
     
     -ms-transform:scale(1.1) translate3d(0,40px,0);
@@ -120,38 +138,45 @@ a, a:hover {
 
 </style></head><body><div id="q">
 
-
 <div class="sect">
-<a href="http://polymapsmc.com/maps" class="icon"><img src="UFI"></a>
-<img src="http://wallpapercave.com/wp/P0KNEvT.jpg" class="pic">
-<div class="title">Maps</div>
-<div class="desc">Play our maps!</div>
-</div>
-
-<div class="sect">
-<a href="http://polymapsmc.com/team" class="icon"><img src="UFI"></a>
-<img src="http://wallpapercave.com/wp/BBnZDXX.jpg" class="pic">
-<div class="title">Team</div>
-<div class="desc">Meet the members of the team.</div>
+<a href="BLOGLINK" class="icon"><img src="UFI"></a>
+<img src="http://i.imgur.com/oduUjof.png" class="pic">
+<div class="title">Planetary Confinement</div>
+<div class="desc">Crash-landed on a barren planet, you must use your skills to survive. Complete quests, search the landscape and use all resources you have to get off the planet.</div>
 </div>
 
 <div class="sect">
-<a href="http://polymapsmc.com/about" class="icon"><img src="UFI"></a>
-<img src="http://wallpapercave.com/wp/YuD9yQd.jpg" class="pic">
-<div class="title">About</div>
-<div class="desc">Information, FAQ & Contact.
-</div>
+<a href="BLOGLINK" class="icon"><img src="UFI"></a>
+<img src="http://i.imgur.com/4G4i3EP.png" class="pic">
+<div class="title">Lights Out</div>
+<div class="desc"> Play as a young girl who wakes up to strange sound, discovering that the electricity is out. Get the power back on and investigate the house!</div>
 </div>
 
 <div class="sect">
-<a href="BLOGLINK" class="icon"><img src="ICONURL"></a>
-<img src="http://wallpapercave.com/wp/vUYioU8.jpg" class="pic">
-<div class="title">Updates</div>
-<div class="desc"> Keep up with our latest projects.
-</div>
+<a href="BLOGLINK" class="icon"><img src="UFI"></a>
+<img src="http://i.imgur.com/GkGYT2f.png" class="pic">
+<div class="title">Dungeon Dash</div>
+<div class="desc">COMING SOON</div>
 </div>
 
+<div class="sect">
+<a href="BLOGLINK" class="icon"><img src="UFI"></a>
+<img src="http://i.imgur.com/JcYpZD9.png" class="pic">
+<div class="title">The Guild</div>
+<div class="desc">COMING SOON</div>
 </div>
+
+
+
+</div>
+
+<!--
+ <div id="text">
+<a href="http://polymapsmc.com/menu">Back to menu</a></div>
+</div>  -->
+
+
+<a href="http://polymapsmc.com/menu" id="info">Back to Menu</a>
 
 
 </body></html>
