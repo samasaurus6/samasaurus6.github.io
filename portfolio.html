@@ -1,631 +1,375 @@
-<!DOCTYPE html>
-<html>
-<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# blog: http://ogp.me/ns/blog#"> 
-   
-<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed|Luckiest+Guy' rel='stylesheet' type='text/css'>
-   
-    <style>figure{margin:0}</style>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><title>Polymaps - Portfolio</title>
+ 
+ 
+<link rel="alternate" type="application/rss+xml" href="{RSS}">
 <link rel="shortcut icon" href="http://samasaurus6.github.io/images/favicon.png">
-    
-    
-    <title>Polymaps - About</title>
-    
-    <meta name="color:Title Font Color" content="#7d8794"/>
-    <meta name="color:Header Nav Color" content="#7d8794"/>
-	<meta name="color:Header Nav Underline Color" content="#96a4b4"/>
-	<meta name="color:Header Background Color" content="#d7dde4"/>
-	<meta name="color:Body Link Color" content="#96a4b4"/>
-    
-    <meta name="font:Body Font" content="Georgia"/>
-    <meta name="font:Secondary Font" content="Verdana"/> 
-    
-    <meta name="select:Column width" content="700px" title="700px">
-    <meta name="select:Column width" content="900px" title="900px">
-    <meta name="select:Column width" content="1200px" title="1200px">
-    
-    <meta name="if:Show Date" content="1">
-    <meta name="if:Show Notes" content="1">
-    <meta name="if:Show Post Ctrl Bttns" content="1">
-    <meta name="if:Show Back to Top Bttn" content="0">
-    <meta name="if:Use Infinite Scroll" content="0">
-    <meta name="if:Use Sticky Header" content="0">
-    
-    <meta name="text:Disqus shortname" content="">
-    <meta name="text:Google analytics ID" content="">
-    
-	
-	<script src="http://static.tumblr.com/s4jebcl/7Ienjuwzs/jquery-1.11.2.min.js"></script>
-	
-	
-	
-	
-    <style>
-    
-    /***************  General styling  ***************/
-    * {margin:0px 0px; padding:0px 0px;}
-    body{
-        color: #444444;
-		background-color: #444444;
-		font-family: 'Roboto Condensed', sans-serif;
-		font-size:25px;
-		position:relative;
-    }
-    a {
-        text-decoration: none;
-    }
-    .clearBoth{
-        clear: both;
-    }
-	.left{
-		float:left;
-	}
-	.right{
-		float:right;
-	}
-    img{
-		border:0 none
-	}
-	li{
-        list-style-type:none;
-    }
-    .sansFont{
-		font-family: 'Luckiest Guy', cursive;
-	}
-    .uppercaseFont{
-		text-transform: uppercase;
-	}
-    
-    /***************Header, pagination, and Footer***************/
-    #head{
-		background-color:#299999;
-		width:100%;
-		height:200px;
-		position:relative;
-		z-index:10;
-    }
-    
-    #info { z-index:1300602; position:fixed; width:200px; bottom:15px; right:15px; color:#299999; text-align:center; font:50px/30px 'Ravi Prakash'; }
-#info:hover { background:transparent ; color:#fff ; }
+<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed|Luckiest+Guy' rel='stylesheet' type='text/css'>
 
-    #content{
-        width:100%;
-		background-color: white;
-    }
-    #main{
-        padding-top:100px;
-        padding-bottom:100px;
-    }
-	#pagination{
-		width:100%;
-		background-color:#d7dde4;
-		height:140px;
-	}
-	#headerWrap, #paginationWrap, #footerWrap, #main, #backBttnWrap, #loadStatusWrap{
-	    position:relative;
-	    margin:0 auto;
-		width:900px;
-	}
-	#headerWrap{
-	    top:93px;
-	}
-	#paginationWrap, #loadStatusWrap{
-	    top:65px;
-	}
-	
-	
-    /******** infinite scroll ************/
-    #loadInfo{
-		color:#7d8794;
-		font-size:12px;
-		margin-left:auto;
-		margin-right:auto;
-		text-align:center;
-    }
-    
-    /******** Back to top button ************/
-    #backBttn{
-        position:fixed;
-        bottom:10px;
-        right:50px;
-        font-size:10px;
-        color:#7d8794;
-    }
-    #backBttn:hover{
-        cursor:pointer;
-    }
-    
-	/******** blog title ************/
-    .blogTitle {
-		font-size:14px;
-		line-height:14px;
-		color:#7d8794;
-		font-weight:bold;
-		vertical-align:text-top;
-    }
-    #navMenu a{
-        font-size:30px;
-        color:#fff;
-		line-height:14px;
-		vertical-align:text-top;
-        display:inline-block;
-        margin-left:20px;
-		padding-bottom:10px;
-    }
-	#navMenu a:hover{
-		border-bottom:4px solid #fff;
-	}
-    #pagination a{
-		display:block;
-		color:#7d8794;
-		font-size:12px;
-		font-weight:bold;
-    }
-    #pagination a:hover{
-		color:#7d8794;
-    }
-    .avatarWrap{
-        margin-right:36px;
-    }
-	.avatarWrap img {
-        -webkit-border-radius: 8px;
-        -moz-border-radius: 8px;
-        border-radius: 8px;
-    }
-    .blogDescription{
-        margin-top:6px;
-        font-size:20px;
-        line-height:20px;
-		color:#dadada;
-    }
-    .blogDescription a{
-        color:#96a4b4;
-    }
-    .blogDescription a:hover{
-        text-decoration:underline;
-    }
-	#foot .titleWrap{
-		width: 600px;
-	}
-	
-    
-    /***************  Posts  ***************/
-    .post{
-        margin-bottom: 100px;
-    }
-    .post:last-child{
-        margin-bottom:0;
-    }
-    
-    .postBody{
-        margin-bottom: 50px;
-    }
-    
-    
-	/***************  Post Content  ***************/
-    .postContent{
-		font-size:20px;
-        line-height:30px;
-    }
-	.postContent p{
-		margin-bottom:18px;
-	}
-	.postContent a{
-		color:#96a4b4;
-	}
-	.postContent a:hover{
-		text-decoration:underline;
-	}
-	/***************  Post Title  ***************/
-	h1,.postTitle, .postTitle a{
-		font-size:42px;
-		line-height:60px;
-		color:#444444;
-	}
-	h1{
-	    margin-bottom:30px;
-	}
-	h2{
-		font-size: 28px;
-		line-height: 56px;
-		font-weight:bold;
-	    margin-bottom:24px;
-	}
-	h3{
-		font-size:22px;
-		line-height:48px;
-		font-weight:bold;
-	    margin-bottom:18px;
-	}
-	h4{
-	    font-size:18px;
-	    line-height:36px;
-	    font-weight:bold;
-	    margin-bottom:12px;
-	}
-	
-	.postTitle{
-		margin-bottom:50px;
-		display:inline-block;
-	}
-	.text .postTitle{
-		margin-bottom:70px;
-	}
-	
-	/*list*/
-	.postContent ul{
-	    margin-bottom:30px;
-	}
-	.postContent ol{
-	    margin-bottom:30px;
-	}
-	.postContent ul li{
-	    margin-left:37px;
-	    padding-left:5px;
-	    list-style-type:disc;
-	    
-	}
-	.postContent ol li{
-	    margin-left:42px;
-	    list-style-type:decimal;
-	}
-	
-    /*blockquote*/
-    blockquote{
-        margin-left:10px;
-		padding-left:28px;
-        border-left:4px solid #d7dde4;
-        margin-right:42px;
-		margin-bottom:18px;
-		
-		font-size:16px;
-		line-height:28px;
-    }
-    .postTypeIcon{
-		font-size:24px;
-		line-height:60px;
-		color:#d7dde4;
-		margin-left:-42px;
-		margin-right:14px;
-		vertical-align:top;
-    }
-    
-    /*Reblog Parent*/
-    .postContent .tumblr_blog{
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-		color:#96a4b4;
-    }
-    
-    /*Post Source*/
-	.postSource a{
-	    font-size:12px;
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-		color:#96a4b4;
-	}
-	.postSource a:hover{
-	    text-decoration:underline;
-	}
-    
-    /***************  Photo, Video, Audio ***************/
-    .photoWrap, .html_photoset, .videoWrap, .audioWrap{
-		margin-left:auto;
-		margin-right:auto;
-		text-align:center;
-		margin-bottom:50px;
-    }
-    /*Phtotset Post*/
-    .html_photoset img{
-        margin-bottom:20px;
-    }
-    .photoWrap img,.html_photoset img{
-		max-width:900px;
-    }
-    /***************  Link Post ***************/
-    .link .postTitle a:hover{
-		color:#96a4b4;
-    }
-    
-	/***************  Chat Post ***************/
-    
-    .postChatLabel{
-        font-weight:bold;
-    }
-    .postChatUl{
-        line-height:36px;
-    }
-	
-    /***************  Answer Post ***************/
-    .postAsker{
-        font-size:14px;
-        margin-bottom:20px;
-    }
-    .postAsker a{
-		color:#96a4b4;
-    }
-    .postAsker a:hover{
-        text-decoration:underline;
-    }
-    
-    
-    /***************  Post Meta ***************/
-    
-    .postMeta{
-		font-size:12px;
-		line-height:12px;
-    }
-    .postMeta div{
-        margin-bottom:20px;
-    }
-    .postMeta a{
-		color:#96a4b4;
-    }
-    .postMeta a:hover{
-		text-decoration:underline;
-	}
-    .postControl a:hover{
-        text-decoration:none;
-    }
-    
-    
-    /*Post Tags*/
-    .postTags div{
-        margin-bottom:20px;
-    }
-    .postTags a{
-        padding:0 8px 0 0;
-    }
-    
-    .postNoteCount{
-        margin-right:14px;
-    }
-    .postControl, .postControl a{
-		color:#cccccc;
-    }
-    
-	.like_button{
-	    display:inline-block;
-	}
-	.postControl a:hover{
-	    color:#d75f45;
-	}
-	
-	
-    /*************** Permalink Page ***************/
-    #notesWrap{
-        padding-top:50px;
-        margin-bottom:100px;
-        font-size:12px;
-        line-height:18px;
-        border-top:1px solid #ececec;
-    }
-    #notesWrap a{
-		color:#96a4b4;
-    }
-    #notesWrap a:hover{
-        text-decoration:underline;
-    }
-    #noteCount{
-        margin-bottom:20px;
-    }
-    #notes li{
-        margin-bottom:8px;
-    }
-    #notes img{
-        margin-right:18px;
-        vertical-align: text-bottom;
-    }
-    #notes blockquote{
-        font-size:12px;
-        line-height:18px;
-        margin-top:8px;
-        margin-left:36px;
-    }
-    
-    #commentWrap{
-        margin-top:100px;
-        margin-bottom:100px;
-    }
-    
-    
-    </style> 
-<link rel="alternate" href="android-app://com.tumblr/tumblr/x-callback-url/blog?blogName=thinkertheme" />
-<link rel="alternate" href="ios-app://305343404/tumblr/x-callback-url/blog?blogName=thinkertheme" />
-<link rel="stylesheet" type="text/css" href="http://assets.tumblr.com/fonts/gibson/stylesheet.css?v=3">
-<meta name="keywords" content="minecraft, build team, minecraft maps, minecraft adventure maps, adventure maps" />
+ 
+<style>
+@import url(http://weloveiconfonts.com/api/?family=entypo|fontawesome);
+   
+ 
+<style type="text/css">
+ 
+::-webkit-scrollbar { height: 0px; width: 9px; background: #62d1d1; border: 4px solid #fff; opacity:1; }
+::-webkit-scrollbar-thumb { background: #62d1d1; border: #fff solid 2px; height: 8px; width: 11px; border-radius: 8px; -moz-border-radius: 8px -webkit-border-radius: 8px o-border-radius: 8px; -ms-border-radius: 8px;}
+ 
+::-moz-selection {background:#62d1d1; color:#fff;}
+::selection {background:#62d1d1; color:#fff;}
 
 
+ 
+body {
+margin:0;
+padding:0;
+border:0;
+background:#f8f8f8; /* BACKGROUND COLOR */
+background-image:url(BACKGROUND IMAGE URL);background-attachment:fixed;background-repeat:100%;
+color:#555;
+font-family:Luckiest Guy;
+font-size:10px;
+word-wrap:break-word;
+}
+ 
+a {
+color:#000;
+text-decoration:none;
+-moz-transition-duration:0.5s;
+-webkit-transition-duration:0.5s;
+-o-transition-duration:0.5s;
+}
+ 
+#s-m-t-tooltip {
+max-width:150px;
+padding:2px 6px;
+margin:25px 14px 7px 15px;
+background-color:#fff;
+font-family:Luckiest Guy;
+font-weight:bold;
+box-shadow:rgba(0,0,0,0.06) 5px 5px;
+border:1px solid #ccc;
+font-size:8px; 
+line-height:11px;
+letter-spacing:1px; 
+text-transform:uppercase; 
+color:#222; 
+z-index:999;
+-moz-transition-duration:0.5s;
+-webkit-transition-duration:0.5s;
+-o-transition-duration:0.5s;
+}
+ 
+#center {
+width:auto;
+margin-right:auto;
+margin-top:100px;
+margin-bottom:100px;
+margin-left:120px;
+}
+ 
+.category {
+width:auto;
+opacity:0.8;
+text-align:left;
+margin-left:auto;
+margin-right:auto;
+top:0;
+font-size:32px;
+font-family:Luckiest Guy;
+letter-spacing:0px;
+padding-top:2px;
+padding-left:15px;
+padding-bottom:2px;
+}
+ 
+.top {
+width:auto;
+opacity:0.8;
+text-align:center;
+border-bottom:1px #ccc solid;
+margin-left:auto;
+margin-right:auto;
+top:0;
+font-size:11px;
+font-family:Luckiest Guy;
+letter-spacing:0px;
+padding-top:10px;
+padding-bottom:20px;
+color:#000; /* DESCRIPTION COLOR */
+background:#299999; /* TOP BACKGROUND COLOR */
+}
+ 
+.top a {
+color:#fff; /* TITLE COLOR */
+font-size:54px;
+font-family:Luckiest Guy;
+letter-spacing:0px;
+font-weight:bold;
+padding:20px;
+-moz-transition-duration:0.5s;
+-webkit-transition-duration:0.5s;
+-o-transition-duration:0.5s;
+}
+ 
+.top a:hover {
+color:#0C1F2B; /* TITLE HOVER */
+-moz-transition-duration:0.5s;
+-webkit-transition-duration:0.5s;
+-o-transition-duration:0.5s;
+}
+ 
+.pic {
+width:300px;
+height:169px;
+margin:15px;
+background:#fff; /* PIC BACKGROUND */
+display:inline-block;
+box-shadow:rgba(0,0,0,0.06) 5px 5px;
+border:1px solid #ccc; /* PIC BORDER */
+padding:0px;
+-webkit-transition: all 0.6s ease-in;
+-moz-transition: all 0.6s ease-in;
+-o-transition: all 0.6s ease-in;
+}
+ 
+.pic img {
+width:300px;
+height:169px;
+display:inline-block;
+}
+ 
+ 
+.pic:hover .info {
+opacity:0.7; /* INFO OPACITY HOVER */
+margin-top:0px;
+-webkit-transition: all 0.4s ease-in;
+-moz-transition: all 0.4s ease-in;
+-o-transition: all 0.4s ease-in;
+}
+ 
+.info {
+position:absolute;
+width:290px;
+height:144px;
+padding:5px;
+padding-top:20px;
+background:#444; /* INFO BACKGROUND COLOR */
+font-size:20px;
+font-family:Luckiest Guy;
+text-transform:uppercase;
+color:#fff; /* INFO TEXT COLOR */
+opacity:0;
+margin-top:0px;
+text-align:center;
+-webkit-transition: all 0.4s ease-in;
+-moz-transition: all 0.4s ease-in;
+-o-transition: all 0.4s ease-in;
+}
+
+.info a {
+color:#fff; /* INFO LINK COLOR */
+-webkit-transition: all 0.4s ease-in;
+-moz-transition: all 0.4s ease-in;
+-o-transition: all 0.4s ease-in;
+}
+
+.info a:hover {
+    color:#62d1d1; /* INFO LINK HOVER */ 
+-webkit-transition: all 0.4s ease-in;
+-moz-transition: all 0.4s ease-in;
+-o-transition: all 0.4s ease-in;
+}
 
 
-</head> 
+ 
+ 
+ 
+</style>  
+<script src="http://assets.tumblr.com/assets/scripts/tumblelog.js?_v=7edb3c3b36e8b351a1249cf33411a3a7"></script>
+<meta http-equiv="x-dns-prefetch-control" content="off"/>
 
 
-<body> 
-<!-- Header -->
-<header id="head">
-	<div id="headerWrap" class="sansFont uppercaseFont">
-		<div class="titleWrap left">
-		</div>
-		<nav id="navMenu" class="right">
-			<a href="http://polymapsmc.com/contact">Contact</a>
-			
-			
-			
-		</nav>
-		<nav id="navMenu" class="left">
-			<a href="http://polymapsmc.com/menu">Back to Menu</a>
-			
-			
-			
-		</nav>
-		<div class="clearBoth"></div>	
-	</div>
-</header>
+</head>
+ 
+<body>
+ 
+ 
+<div class="top">
+<a href="/menu" title="Back Home">PORTFOLIO</a><br>
+</div>
+ 
+<div id="center">
 
-<div id="content">    
-<div id="main">
-    <!-- Tag Page -->
-    
-    
-	
+<!-- NAME 1 -->
 
-		<article class="post text">
-		
-			<div class="postBody">
-				
-					
-						<div class="postTitle">
-							<a>Portfolio</a>
-						</div>
-					
-					<div class="postContent">
-					
-					<img src="http://samasaurus6.github.io/images/dank.jpg">
-					
-</p></div>
-
-			</div>
-		</article>
-</div><!--main-->
+<div class="category">
+<a href="/menu" title="Back Home">Maps</a><br>
 </div>
 
-<!-- Sticky Header -->
+<div class="pic">
+<div class="info">
+<div style="margin-top:95px;"><a href="http://polymapsmc.com/images/portfolio/maps/1.png">View</a>
+<br></div>
+ 
+</div>
+<img src="http://polymapsmc.com/images/portfolio/maps/1.png"></div>
 
-<script>
-    (function($){
-        var shFlag=0;
-        $("#head").css("height","200px").css("position","fixed").css("top","0");
-        $("#main").css("padding-top","300px");
-        
-        
-        $(function(){
-            $(window).bind("scroll",stickyHeader);
-        });
-        
-        function stickyHeader(){
-            var yOffset=window.pageYOffset;
-            if ((shFlag!=1)&&(yOffset>80)){
-                setStickyHeader();
-            }
-            else if((shFlag==1)&&(yOffset<=80)){
-                removeStickyHeader();
-            }
-        }
-        
-        function setStickyHeader(){
-            $("#head").animate({height:"80px"},"fast");
-            $("#headerWrap").animate({top:"33px"},"fast");
-            $("#main").animate({paddingTop:"280px"},"fast");
-            shFlag=1;
-        }
-        
-        function removeStickyHeader(){
-            $("#main").css("padding-top","300px");
-            $("#head").css("height","200px");
-            $("#headerWrap").css("top","93px");
-            shFlag=0;
-        }
-    })(jQuery);
-</script>
+<!-- END NAME 1 -->
+
+<!-- NAME 1 -->
+
+<div class="category">
+<a href="/menu" title="Back Home">Maps</a><br>
+</div>
+
+<div class="pic">
+<div class="info">
+<div style="margin-top:95px;"><a href="http://polymapsmc.com/images/portfolio/maps/2.png">View</a>
+<br></div>
+ 
+</div>
+<img src="http://polymapsmc.com/images/portfolio/maps/2.png"></div>
+
+<!-- END NAME 1 -->
+
+<!-- NAME 1 -->
+
+<div class="category">
+<a href="/menu" title="Back Home">Maps</a><br>
+</div>
+
+<div class="pic">
+<div class="info">
+<div style="margin-top:95px;"><a href="http://polymapsmc.com/images/portfolio/maps/3.png">View</a>
+<br></div>
+ 
+</div>
+<img src="http://polymapsmc.com/images/portfolio/maps/3.png"></div>
+
+<!-- END NAME 1 -->
+
+<!-- NAME 1 -->
+
+<div class="category">
+<a href="/menu" title="Back Home">Maps</a><br>
+</div>
+
+<div class="pic">
+<div class="info">
+<div style="margin-top:95px;"><a href="http://polymapsmc.com/images/portfolio/maps/4.png">View</a>
+<br></div>
+ 
+</div>
+<img src="http://polymapsmc.com/images/portfolio/maps/4.png"></div>
+
+<!-- END NAME 1 -->
+
+<!-- NAME 1 -->
+
+<div class="category">
+<a href="/menu" title="Back Home">Maps</a><br>
+</div>
+
+<div class="pic">
+<div class="info">
+<div style="margin-top:95px;"><a href="http://polymapsmc.com/images/portfolio/maps/5.png">View</a>
+<br></div>
+ 
+</div>
+<img src="http://polymapsmc.com/images/portfolio/maps/5.png"></div>
+
+<!-- END NAME 1 -->
+
+<!-- NAME 1 -->
+
+<div class="category">
+<a href="/menu" title="Back Home">Maps</a><br>
+</div>
+
+<div class="pic">
+<div class="info">
+<div style="margin-top:95px;"><a href="http://polymapsmc.com/images/portfolio/maps/6.png">View</a>
+<br></div>
+ 
+</div>
+<img src="http://polymapsmc.com/images/portfolio/maps/6.png"></div>
+
+<!-- END NAME 1 -->
+
+<!-- NAME 1 -->
+
+<div class="category">
+<a href="/menu" title="Back Home">Maps</a><br>
+</div>
+
+<div class="pic">
+<div class="info">
+<div style="margin-top:95px;"><a href="http://polymapsmc.com/images/portfolio/maps/7.png">View</a>
+<br></div>
+ 
+</div>
+<img src="http://polymapsmc.com/images/portfolio/maps/7.png"></div>
+
+<!-- END NAME 1 -->
+
+<!-- NAME 1 -->
+
+<div class="category">
+<a href="/menu" title="Back Home">Maps</a><br>
+</div>
+
+<div class="pic">
+<div class="info">
+<div style="margin-top:95px;"><a href="http://polymapsmc.com/images/portfolio/maps/8.png">View</a>
+<br></div>
+ 
+</div>
+<img src="http://polymapsmc.com/images/portfolio/maps/8.png"></div>
+
+<!-- END NAME 1 -->
+
+<!-- NAME 1 -->
+
+<div class="category">
+<a href="/menu" title="Back Home">Maps</a><br>
+</div>
+
+<div class="pic">
+<div class="info">
+<div style="margin-top:95px;"><a href="http://polymapsmc.com/images/portfolio/maps/9.png">View</a>
+<br></div>
+ 
+</div>
+<img src="http://polymapsmc.com/images/portfolio/maps/9.png"></div>
+
+<!-- END NAME 1 -->
+
+<!-- NAME 1 -->
+
+<div class="category">
+<a href="/menu" title="Back Home">Maps</a><br>
+</div>
+
+<div class="pic">
+<div class="info">
+<div style="margin-top:95px;"><a href="http://polymapsmc.com/images/portfolio/maps/10.png">View</a>
+<br></div>
+ 
+</div>
+<img src="http://polymapsmc.com/images/portfolio/maps/10.png"></div>
+
+<!-- END NAME 1 -->
 
 
 
-<script>
-    (function($){
-        $('#backBttn').click(function(event) {
-    		event.preventDefault();
-    		$('html, body').animate({scrollTop: 0}, 500);
-    	})
-	})(jQuery);
-</script>
 
-<iframe scrolling="no" width="1" height="1" frameborder="0" style="background-color:transparent; overflow:hidden; position:absolute; top:0; left:0; z-index:9999;" id="ga_target"></iframe><script type="text/javascript">
-    (function(){
-        var analytics_frame = document.getElementById('ga_target');
-        var analytics_iframe_loaded;
-        var user_logged_in;
-        var blog_is_nsfw = 'No';
-        var addthis_enabled = false;
 
-        var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
-        var eventer = window[eventMethod];
-        var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
-        eventer(messageEvent,function(e) {
-            var message = (e.data && e.data.split) ? e.data.split(';') : '';
-            switch (message[0]) {
-                case 'analytics_iframe_loaded':
-                    analytics_iframe_loaded = true;
-                    postCSMessage();
-                    postGAMessage();
-                    postATMessage();
-                    postRapidMessage();
-                    break;
-                case 'user_logged_in':
-                    user_logged_in = message[1];
-                    postGAMessage();
-                    postATMessage();
-                    break;
-            }
-        }, false);
 
-        analytics_frame.src = "https://secure.assets.tumblr.com/analytics.html?f63f62d9d04a996a8fcb505da4e74841#" +
-                              "http://thinkertheme.tumblr.com";
-        function postGAMessage() {
-            if (analytics_iframe_loaded && user_logged_in) {
-                var is_ajax = false;
-                analytics_frame.contentWindow.postMessage(['tick_google_analytics', is_ajax, user_logged_in, blog_is_nsfw, '/?route=%2F'].join(';'), analytics_frame.src.split('/analytics.html')[0]);
-            }
-        }
-        function postCSMessage() {
-            COMSCORE = true;
-            analytics_frame.contentWindow.postMessage('enable_comscore;' + window.location, analytics_frame.src.split('/analytics.html')[0]);
-        }
-        function postATMessage() {
-            if (addthis_enabled && analytics_iframe_loaded) {
-                analytics_frame.contentWindow.postMessage('enable_addthis', analytics_frame.src.split('/analytics.html')[0]);
-            }
-        }
-        function postRapidMessage() {
-                            if (analytics_iframe_loaded) {
-                    var is_ajax = '';
-                    var route = '/';
-                    var tumblelog_id = '222479758';
-                    var yahoo_space_id = '1197719229';
-                    var rapid_client_only = '1';
-                    var apv = '1';
-                    var rapid_ex = '';
 
-                    analytics_frame.contentWindow.postMessage(
-                        [
-                            'tick_rapid', is_ajax, route, user_logged_in, tumblelog_id,
-                            yahoo_space_id, rapid_client_only, apv, rapid_ex
-                        ].join(';'),
-                        analytics_frame.src.split('/analytics.html')[0]
-                    );
-                }
-                    }
-    })();
-</script><script type="text/javascript">!function(s){s.src='https://px.srvcs.tumblr.com/impixu?T=1455476465&J=eyJ0eXBlIjoidXJsIiwidXJsIjoiaHR0cDpcL1wvdGhpbmtlcnRoZW1lLnR1bWJsci5jb21cLyIsInJlcXR5cGUiOjAsInJvdXRlIjoiXC8ifQ==&U=JOLEENCEAD&K=259db6963635debbf2e052412bfa5e95b3cd36e21ac11f611729f60f8dc09324&R='.replace(/&R=[^&$]*/,'').concat('&R='+escape(document.referrer)).slice(0,2000).replace(/%.?.?$/,'');}(new Image());</script><noscript><img style="position:absolute;z-index:-3334;top:0px;left:0px;visibility:hidden;" src="https://px.srvcs.tumblr.com/impixu?T=1455476465&J=eyJ0eXBlIjoidXJsIiwidXJsIjoiaHR0cDpcL1wvdGhpbmtlcnRoZW1lLnR1bWJsci5jb21cLyIsInJlcXR5cGUiOjAsInJvdXRlIjoiXC8iLCJub3NjcmlwdCI6MX0=&U=JOLEENCEAD&K=2fb031ed96358edee8f32e5d3ac6cf66143c780427a8c733342ec322ca84ae05&R="></noscript><script >
-        (function (w,d) {
-            'use strict';
-            var l = function(el, type, listener, useCapture) {
-                el.addEventListener ?
-                el.addEventListener(type, listener, !!useCapture) :
-                el.attachEvent && el.attachEvent('on' + type, listener, !!useCapture);
-            };
-            var a = function () {
-                                if (d.getElementById('tumblr-cdx')) {
-                    return;
-                }
-                var s = d.createElement('script');
-                var el = d.getElementsByTagName('script')[0];
-                s.async = true;
-                s.src = 'http://assets.tumblr.com/assets/scripts/vendor/cedexis/cedexis.radar.js?_v=7450eec657e34e1e41dac4e1af96a170';
-                s.type = 'text/javascript';
-                s.id = 'tumblr-cdx';
-                d.body.appendChild(s);
-            };
-            l(w,'load',a);
-        }(window, document));
-</script>
 
+
+
+</div>
 </body>
 </html>
