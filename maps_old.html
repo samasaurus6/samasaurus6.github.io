@@ -1,0 +1,182 @@
+<html><head>
+<title>Polymaps - Maps</title>
+
+<link rel="shortcut icon" href="http://samasaurus6.github.io/images/favicon.png">
+
+<link rel="alternate" type="application/rss+xml" href="{RSS}">
+<link href='https://fonts.googleapis.com/css?family=Work+Sans:300,600' rel='stylesheet' type='text/css'>
+
+<link href='https://fonts.googleapis.com/css?family=Ravi+Prakash' rel='stylesheet' type='text/css'>
+
+<link href='https://fonts.googleapis.com/css?family=Aldrich' rel='stylesheet' type='text/css'>
+
+<style>
+
+body { position:fixed; width:100%; height:100%; margin:0; background:#000; font:0/0 'Ravi Prakash'; word-break:break-word; }
+* { box-sizing:border-box; }
+.tmblr-iframe--controls.iframe-controls--desktop, .tmblr-iframe--desktop-loggedin-controls.iframe-controls--desktop { z-index:1300602!important; }
+::-moz-selection { background:#000; color:#fff; }
+::selection { background:#000; color:#fff; }
+h2 { margin:10px; text-transform:uppercase; font:300 25px/25px 'Ravi Prakash', cursive;}
+
+a, a:hover {
+    text-decoration:none;
+    color:#fff;; 
+    -webkit-transition:.35s;
+    transition:.35s; }
+    
+#text {position:Absolute;
+top:0;
+margin-top:550px;
+width:100%;
+right:0;
+text-align:center;
+font-size:50px;
+letter-spacing:2px;
+text-transform:uppercase;}
+#text a {margin: 0 3px;}
+
+#info { width:300px; bottom:15px; right:15px; background:transparent; text-align:center; font:30px 'Ravi Prakash'; }
+#info:hover { background:#2a2a2a; color:#fff; }
+
+
+#q { height:100%; }
+.sect {
+    position:relative;
+    display:inline-block;
+    height:100%;
+    width:calc(100% / 4); 
+    overflow:hidden;
+    margin-left:0;
+    border-left:3px solid #fff;
+    -webkit-transition:.35s;
+    transition:.35s; }
+.sect:first-child { border-left:0; }    
+
+.sect::before { z-index:146492; position:absolute; width:100%; height:calc(30% - 3px); top:0; left:0; background:transparent; content:''; -webkit-transition:.35s; transition:.35s; }
+.sect:hover::before { background:rgba(0,0,0,0); -webkit-transition:.35s; transition:.35s; }
+.sect::after { position:absolute; width:100%; height:70%; bottom:0; left:0; background:rgba(0,0,0,0); content:''; -webkit-transition:.35s; transition:.35s; }
+.sect:hover::after { background:rgba(0,0,0,0); -webkit-transition:.35s; transition:.35s; }  
+
+.icon img { z-index:1300602; position:absolute; width:100px; height:100px; margin:auto; left:0; right:0; top:calc(30% - 50px); border:3px solid #fff; -webkit-transition:.35s; transition:.35s; } 
+.icon img:hover { -ms-transform:scale(1.15); -webkit-transform:scale(1.15); transform:scale(1.15); -webkit-transition:.35s; transition:.35s; }
+
+.url {
+    z-index:1300601;
+    position:absolute;
+    padding:15px;
+    width:75%;
+    margin:auto;
+    left:0;
+    right:0;
+    top:calc(15% - 60px);
+    color:#fff;
+    text-align:center;
+    text-transform:uppercase;
+    background:rgba(0,0,0,.25);
+    font:300 20px/1 'Ravi Prakash';
+    border:1px solid #fff;
+    -ms-transform:scale(1.1) translate3d(0,-40px,0);
+    -webkit-transform:scale(1.1) translate3d(0,-40px,0);
+    transform:scale(1.1) translate3d(0,-40px,0);
+    opacity:0;
+    -webkit-transition:.35s;
+    transition:.35s; }
+.icon:hover + .url, .sect:hover .title, .sect:hover .desc { -ms-transform:scale(1) translate3d(0,0,0);  -webkit-transform:scale(1) translate3d(0,0,0); transform:scale(1) translate3d(0,0,0); opacity:1; -webkit-transition:.35s; transition:.35s; } 
+
+.title {
+    z-index:1300601;
+    position:absolute;
+    padding:10px;
+    top:calc(45% - 40px);
+    width:100%;
+    height:40px;
+    overflow:hidden;
+    color:#fff;
+    text-align:center;
+    text-transform:uppercase;
+    background:rgba(0,0,0,0.65);
+    font:30px/1 'Ravi Prakash', cursive; /* change TITLE TEXT SIZE */
+    -ms-transform:translate3d(0,40px,0);
+    -webkit-transform:translate3d(0,40px,0);
+    transform:translate3d(0,40px,0);
+    -webkit-transition:.35s;
+    transition:.35s; }
+
+#info { z-index:1300602; position:fixed; width:200px; bottom:15px; right:15px; color:#B6B6B6; text-align:center; font:50px/30px 'Ravi Prakash'; }
+#info:hover { background:transparent ; color:#fff ; }
+    
+.desc {
+    z-index:1300602;
+    position:absolute;
+    padding:25px;
+    width:75%;
+    max-height:calc(55% - 50px);
+    overflow:auto;
+    margin:auto;
+    left:0;
+    right:0;
+    top:calc(45% + 20px);
+    text-align:center;
+    background:rgba(0,0,0,0.65);
+    color:#fff;
+    font:20px 'Aldrich', sans-serif;  */
+    
+    
+    -ms-transform:scale(1.1) translate3d(0,40px,0);
+    -webkit-transform:scale(1.1) translate3d(0,40px,0);
+    transform:scale(1.1) translate3d(0,40px,0);
+    opacity:0;
+    -webkit-transition:.35s;
+    transition:.35s; }
+.desc img { max-width:100%; }
+.desc::-webkit-scrollbar { width:10px; }
+.desc::-webkit-scrollbar-thumb { background:rgba(0,0,0,.75); }
+    
+.pic { position:absolute; height:100%; margin:auto; left:-999px; right:-999px; -ms-transform:scale(1.15); -webkit-transform:scale(1.15); transform:scale(1.15); -webkit-transition:.35s; transition:.35s; }
+.sect:hover .pic { -ms-transform:scale(1); -webkit-transform:scale(1); transform:scale(1); -webkit-transition:.35s; transition:.35s; }
+
+</style></head><body><div id="q">
+
+<div class="sect">
+<a href="BLOGLINK" class="icon"><img src="UFI"></a>
+<img src="http://i.imgur.com/oduUjof.png" class="pic">
+<div class="title">Planetary Confinement</div>
+<div class="desc">Crash-landed on a barren planet, you must use your skills to survive. Complete quests, search the landscape and use all resources you have to get off the planet.</div>
+</div>
+
+<div class="sect">
+<a href="BLOGLINK" class="icon"><img src="UFI"></a>
+<img src="http://i.imgur.com/4G4i3EP.png" class="pic">
+<div class="title">Lights Out</div>
+<div class="desc"> Play as a young girl who wakes up to strange sound, discovering that the electricity is out. Get the power back on and investigate the house!</div>
+</div>
+
+<div class="sect">
+<a href="BLOGLINK" class="icon"><img src="UFI"></a>
+<img src="http://i.imgur.com/GkGYT2f.png" class="pic">
+<div class="title">Dungeon Dash</div>
+<div class="desc">COMING SOON</div>
+</div>
+
+<div class="sect">
+<a href="BLOGLINK" class="icon"><img src="UFI"></a>
+<img src="http://i.imgur.com/JcYpZD9.png" class="pic">
+<div class="title">The Guild</div>
+<div class="desc">COMING SOON</div>
+</div>
+
+
+
+</div>
+
+<!--
+ <div id="text">
+<a href="http://polymapsmc.com/menu">Back to menu</a></div>
+</div>  -->
+
+
+<a href="http://polymapsmc.com/menu" id="info">Back to Menu</a>
+
+
+</body></html>
