@@ -56,6 +56,15 @@ x {
    font-family: 'Luckiest Guy', cursive;
 }
 
+#title {
+	margin: 0;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+
 #container {
     width:1200px;
     height:500px;
@@ -69,7 +78,7 @@ x {
 #info {
     position:fixed;
     width:1200px;
-    margin-top:180px;
+    margin-top:200px;
     text-align:center;
     text-transform:uppercase;
 }
@@ -131,11 +140,17 @@ attribute:"title"});});
 
 <body>
 
+<div id="title">
+<img src="http://www.polymapsmc.com/images/polymaps.png">
+</div>
+
 <div id="container">
+
+
 
 <div id="info">
 
-<x>More than blocks.
+<x>More than blocks
 
 </x>
 
