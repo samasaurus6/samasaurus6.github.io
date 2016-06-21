@@ -1,0 +1,95 @@
+{{ define "hero" }}
+	{{ $imagepath := .Path | replaceRE "\\.\\w+$" "/" | replaceRE "\\\\" "/" | absURL }}
+	<div class="hero-body">
+		<div class="container">
+			<div class="columns">
+				<div class="column is-2">
+					<figure class="image map-image">
+						<img src="{{ $imagepath }}thumb.jpg" alt="{{ .Title }}">
+					</figure>
+				</div>
+				<div class="column is-7">
+					<h2 class="title is-1">{{ .Title }}</h2>
+					<div class="content">
+						{{ .Summary }}
+					</div>
+				</div>
+				<div class="column is-3">
+					<div class="content">
+						<p>
+							Type:
+							{{ range $index, $type := (index .Params "projects/types") -}}
+								{{ if ne $index 0 }}, {{ end -}}
+								<a href="/projects/types/{{ $type | urlize }}">{{ $type }}</a>
+							{{- end }}
+						</p>
+					</div>
+					{{ if len .Params.link }}
+						<nav class="panel">
+							<p class="panel-heading">
+								Links
+							</p>
+							{{ range .Params.link }}
+								<a href="{{ .url }}" class="panel-block">
+									<span class="panel-icon">
+										<i class="fa fa-{{ index . "icon" | default "share" }}"></i>
+									</span>
+									{{ .title }}
+								</a>
+							{{ end }}
+						</nav>
+					{{ end }}
+				</div>
+			</div>
+		</div>
+	</div>
+{{ end }}
+
+{{ define "content" }}
+	{{ $imagepath := .Path | replaceRE "\\.\\w+$" "/" | replaceRE "\\\\" "/" | absURL }}
+	{{ $imagedir := print "./content/" (.Path | replaceRE "\\.\\w+$" "/" | replaceRE "\\\\" "/") }}
+	{{ $images := print $imagedir "images" | readDir }}
+	{{ if len $images }}
+		<div class="is-marginless columns is-gapless is-mobile is-multiline">
+			{{ range $images }}
+				{{ $image := print $imagepath "images/" .Name }}
+				<div class="column is-one-third-mobile is-one-quarter">
+					<a class="image is-16by9"
+						href="{{ $image }}"
+						target="_blank"
+						data-lightbox="map-image">
+						<img src="{{ $image }}" />
+					</a>
+				</div>
+			{{ end }}
+		</div>
+	{{ end }}
+		<section class="section">
+		<div class="container">
+			<div class="content">
+				<!-- this sucks for performance but the only working way... -->
+				{{ replace .Content .Summary "" | safeHTML }}
+			</div>
+			{{ $authors := index .Params "projects/authors" | where (where .Site.Pages "Section" "people") "Title" "in" }}
+			{{ if len $authors }}
+				<div class="content">
+					<h3 class="title is-2">Made by</h3>
+				</div>
+				<div class="columns is-multiline">
+					{{ range $authors }}
+						<div class="column is-one-third">
+							{{ .Render "summary"}}
+						</div>
+					{{ end }}
+				</div>
+			{{ end }}
+		</div>
+	</section>
+{{ end }}
+
+{{ define "head" }}
+	<link href="https://cdn.jsdelivr.net/lightbox2/2.7.1/css/lightbox.css" rel="stylesheet" />
+{{ end }}
+{{ define "foot" }}
+	<script src="https://cdn.jsdelivr.net/lightbox2/2.7.1/js/lightbox.min.js"></script>
+{{ end }}

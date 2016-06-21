@@ -1,0 +1,63 @@
+{{ define "hero" }}
+	{{ $avatar := .Path | replaceRE "\\.\\w+$" ".png" | replaceRE "\\\\" "/" | absURL }}
+	<div class="hero-body">
+		<div class="container">
+			<article class="media person">
+				<figure class="media-left">
+					<figure class="image is-128x128">
+						<img src="{{ $avatar }}" alt="{{ .Title }}">
+					</figure>
+				</figure>
+				<div class="media-content">
+					<h2 class="title is-2">{{ .Title }}</h2>
+					<div class="content">
+						{{ .Content }}
+					</div>
+					<div class="level social">
+						{{ range .Params.social }}
+							<a class="level-item media" href="{{ .url }}">
+								<div class="media-left">
+									<span class="icon">
+										<i class="fa fa-{{ .icon }}"></i>
+									</span>
+								</div>
+								<div class="media-content">
+									{{ .name }}
+								</div>
+							</a>
+						{{ end }}
+					</div>
+				</div>
+			</article>
+		</div>
+	</div>
+{{ end }}
+
+{{ define "content" }}
+	<section class="section">
+		<div class="container">
+			<div class="columns">
+				<div class="column is-half">
+					<div class="heading">
+						<h3 class="title is-2">Maps</h3>
+					</div>
+					{{ range (index (index .Site.Taxonomies "maps/authors") (.Title | urlize)) }}
+						{{ .Page.Render "summary"}}
+					{{ else }}
+						<p>None yet</p>
+					{{ end }}
+				</div>
+				<div class="column is-half">
+					<div class="heading">
+						<h3 class="title is-2">Projects</h3>
+					</div>
+					{{ range (index (index .Site.Taxonomies "projects/authors") (.Title | urlize)) }}
+						{{ .Page.Render "summary"}}
+					{{ else }}
+						<p>None yet</p>
+					{{ end }}
+				</div>
+			</div>
+		</div>
+	</section>
+{{ end }}

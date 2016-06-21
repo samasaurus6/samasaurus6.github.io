@@ -1,0 +1,29 @@
+<section class="section">
+	<div class="container">
+		<div class="heading">
+			<h3 class="title is-3">Filter</h3>
+		</div>
+		<div class="columns">
+			<div class="column">
+				For Minecraft Version:
+				<p class="control is-multiline has-addons">
+					<!-- for some reason .URL for taxonomies adds /index -->
+					{{ $currentURL := replace .URL "/index" "" }}
+					<a href="/maps/" class="button
+						{{- if eq $currentURL "/maps/" }} is-primary{{ end }}">
+						All
+					</a>
+					{{ range $version, $maps := index .Site.Taxonomies "maps/mc-versions" }}
+						<a href="/maps/mc-versions/{{ $version | urlize }}" class="button
+							{{- if eq $currentURL (print "/maps/mc-versions/" ($version | urlize) "/") }} is-primary{{end}}">
+							{{ $version | humanize }}
+						</a>
+					{{ end }}
+				</p>
+			</div>
+		</div>
+		{{ range .Data.Pages }}
+			{{ .Render "summary" }}
+		{{ end }}
+	</div>
+</section>

@@ -1,0 +1,29 @@
+<section class="section">
+	<div class="container">
+		<div class="heading">
+			<h3 class="title is-3">Filter</h3>
+		</div>
+		<div class="columns">
+			<div class="column">
+				Type:
+				<p class="control is-multiline has-addons">
+					<!-- for some reason .URL for taxonomies adds /index -->
+					{{ $currentURL := replace .URL "/index" "" }}
+					<a href="/projects/" class="button
+						{{- if eq $currentURL "/projects/" }} is-primary{{ end }}">
+						All
+					</a>
+					{{ range $type, $projects := index .Site.Taxonomies "projects/types" }}
+						<a href="/projects/types/{{ $type | urlize }}" class="button
+							{{- if eq $currentURL (print "/projects/types/" ($type | urlize) "/") }} is-primary{{end}}">
+							{{ $type | humanize }}
+						</a>
+					{{ end }}
+				</p>
+			</div>
+		</div>
+		{{ range .Data.Pages }}
+			{{ .Render "summary" }}
+		{{ end }}
+	</div>
+</section>

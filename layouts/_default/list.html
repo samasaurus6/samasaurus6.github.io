@@ -1,0 +1,11 @@
+{{ define "content" }}
+<section class="section">
+	<div class="container">
+		<h1 class="title is-3">{{ .Title }}</h1>
+		<ul>
+			{{ range .Data.Pages }} {{ .Render "li"}} {{ end }}
+		</ul>
+	</div>
+</section>
+
+{{ end }}

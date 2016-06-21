@@ -1,0 +1,98 @@
+{{ define "hero" }}
+	{{ $imagepath := .Path | replaceRE "\\.\\w+$" "/" | replaceRE "\\\\" "/" | absURL }}
+	<div class="hero-cover-image" style="background-image: url('{{ $imagepath }}background.jpg')"></div>
+	<div class="hero-body">
+		<div class="container">
+			<div class="columns">
+				<div class="column is-2">
+					<figure class="image map-image">
+						<img src="{{ $imagepath }}icon.png" alt="{{ .Title }}">
+					</figure>
+				</div>
+				<div class="column is-7">
+					<h2 class="title is-1">{{ .Title }}</h2>
+					<div class="content">
+						{{ .Summary }}
+					</div>
+				</div>
+				<div class="column is-3">
+					<div class="content">
+						<p>
+							Minecraft Versions:
+							{{ range (index .Params "maps/mc_versions") }}
+								<a href="/maps/mc_versions/{{ . | urlize }}">{{ . }}</a>
+							{{ end }}
+						</p>
+					</div>
+					<nav class="panel">
+						<p class="panel-heading">
+							Downloads
+						</p>
+						{{ range .Params.download }}
+							<a href="{{ .url }}" class="panel-block">
+								<span class="panel-icon">
+									<i class="fa fa-arrow-down"></i>
+								</span>
+								{{ .title }}
+							</a>
+						{{ end }}
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+{{ end }}
+
+{{ define "content" }}
+	{{ $imagepath := .Path | replaceRE "\\.\\w+$" "/" | replaceRE "\\\\" "/" | absURL }}
+	{{ $imagedir := print "./content/" (.Path | replaceRE "\\.\\w+$" "/" | replaceRE "\\\\" "/") }}
+	{{ if .Params.youtube }}
+		<div class="embed-container">
+			<div class='embed-container'><iframe src='http://www.youtube.com/embed/{{ .Params.youtube }}' frameborder='0' allowfullscreen></iframe></div>
+		</div>
+	{{ end }}
+	{{ $images := print $imagedir "images" | readDir }}
+	{{ if len $images }}
+		<div class="is-marginless columns is-gapless is-mobile is-multiline">
+			{{ range $images }}
+				{{ $image := print $imagepath "images/" .Name }}
+				<div class="column is-one-third-mobile is-one-quarter">
+					<a class="image is-16by9"
+						href="{{ $image }}"
+						target="_blank"
+						data-lightbox="map-image">
+						<img src="{{ $image }}" />
+					</a>
+				</div>
+			{{ end }}
+		</div>
+	{{ end }}
+	<section class="section">
+		<div class="container">
+			<div class="content">
+				<!-- this sucks for performance but the only working way... -->
+				{{ replace .Content .Summary "" | safeHTML }}
+			</div>
+			{{ $authors := index .Params "maps/authors" | where (where .Site.Pages "Section" "people") "Title" "in" }}
+			{{ if len $authors }}
+				<div class="content">
+					<h3 class="title is-2">Made by</h3>
+				</div>
+				<div class="columns is-multiline">
+					{{ range $authors }}
+						<div class="column is-one-third">
+							{{ .Render "summary"}}
+						</div>
+					{{ end }}
+				</div>
+			{{ end }}
+		</div>
+	</section>
+{{ end }}
+
+{{ define "head" }}
+	<link href="https://cdn.jsdelivr.net/lightbox2/2.7.1/css/lightbox.css" rel="stylesheet" />
+{{ end }}
+{{ define "foot" }}
+	<script src="https://cdn.jsdelivr.net/lightbox2/2.7.1/js/lightbox.min.js"></script>
+{{ end }}

@@ -1,0 +1,6 @@
+# Built files
+public/*
+
+# Tools for lazy use
+tools/*
+!tools/.gitkeep

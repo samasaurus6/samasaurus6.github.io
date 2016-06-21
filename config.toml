@@ -1,0 +1,47 @@
+baseurl = "http://57685e73.eu.ngrok.io/"
+languageCode = "en-us"
+title = "Polymaps"
+
+SectionPagesMenu = "main"
+[[menu.main]]
+	name = "Home"
+	weight = -100
+	identifier = "home"
+	url = "/"
+[[menu.main]]
+	name = "Team"
+	identifier = "people"
+	weight = 2
+	url = "/people/"
+[[menu.main]]
+	name = "Portfolio"
+	identifier = "projects"
+	weight = 3
+	url = "/projects/"
+
+[[menu.home]]
+	name = "Maps"
+	identifier = "maps"
+	weight = 0
+	url = "/maps/"
+[[menu.home]]
+	name = "Team"
+	identifier = "people"
+	weight = 1
+	url = "/people/"
+[[menu.home]]
+	name = "Portfolio"
+	identifier = "projects"
+	weight = 2
+	url = "/projects/"
+[[menu.home]]
+	name = "About"
+	identifier = "about"
+	weight = 3
+	url = "/about/"
+
+[taxonomies]
+"map/author" = "maps/authors"
+"map/mc-version" = "maps/mc-versions"
+"project/author" = "projects/authors"
+"project/type" = "projects/types"

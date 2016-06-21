@@ -1,0 +1,22 @@
+{{ define "hero" }}
+	<div class="hero-body">
+		<div class="container">
+			<h2 class="title is-1">The Team</h2>
+			<h3 class="subtitle is-3">The Wizards of Polymaps</h3>
+		</div>
+	</div>
+{{ end }}
+
+{{ define "content" }}
+	<section class="section">
+		<div class="container">
+			<div class="columns is-multiline">
+				{{ range .Data.Pages }}
+					<div class="column is-one-third">
+						{{ .Render "summary"}}
+					</div>
+				{{ end }}
+			</div>
+		</div>
+	</section>
+{{ end }}

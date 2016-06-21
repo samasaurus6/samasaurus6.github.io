@@ -1,0 +1,24 @@
+{{ $imagepath := .Path | replaceRE "\\.\\w+$" "/" | replaceRE "\\\\" "/" | absURL }}
+<article class="media">
+	<figure class="media-left">
+		<a href="{{ .Permalink }}">
+			<figure class="image is-128x128">
+				<img src="{{ $imagepath }}icon.png" alt="{{ .Title }}">
+			</figure>
+		</a>
+	</figure>
+	<div class="media-content">
+		<h2 class="title is-4"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+		<div class="content">
+			{{ .Summary }}
+		</div>
+		{{ if index .Params "maps/mc-versions" | len }}
+			<p>
+				Minecraft Versions:
+				{{ range (index .Params "maps/mc-versions") }}
+					<a href="/maps/mc-versions/{{ . | urlize }}"><span class="tag">{{ . }}</span></a>
+				{{ end }}
+			</p>
+		{{ end }}
+	</div>
+</article>

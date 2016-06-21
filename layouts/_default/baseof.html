@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>{{ .Site.Title }}</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	{{ block "head" . }}{{ end }}
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.0.28/css/bulma.css">
+	<link rel="stylesheet" href="{{ .Site.BaseURL }}assets/css/main.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Luckiest+Guy">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+</head>
+
+<body>
+	{{ if not .IsHome }}
+		<section class="hero is-primary is-bold">
+			<div class="hero-head">
+				<nav class="nav">
+					<div class="container">
+						<div class="nav-left">
+							<a href="{{ .Site.BaseURL }}" class="nav-item">
+								<img src="{{ .Site.BaseURL }}assets/images/logo-small.png" alt="Logo" />
+								<img src="{{ .Site.BaseURL }}assets/images/polymaps.png" alt="Logo" />
+							</a>
+						</div>
+						<span class="nav-toggle" id="menu-mobile-toggle">
+							<span></span><span></span><span></span>
+						</span>
+						<div id="menu-mobile" class="nav-right nav-menu">
+							{{- $currentNode := . }}
+							{{- $firstURLChunk := index (split $currentNode.URL "/") 1 | default "index" }}
+							{{- $currentURLPrefix := print "/" $firstURLChunk "/" }}
+							{{- range .Site.Menus.main -}}
+								{{- $active := or ($currentNode.IsMenuCurrent "main" .) ($currentNode.HasMenuCurrent "main" .) }}
+								{{- $active := or $active (hasPrefix .URL $currentURLPrefix) }}
+								<a class="nav-item
+									{{- if $active }} is-active{{ end -}}
+								" href="{{ .URL }}">{{ .Name }}</a>
+							{{- end }}
+						</div>
+					</div>
+				</nav>
+			</div>
+			{{ block "hero" . }}{{ end }}
+		</section>
+	{{ end }}
+
+	{{ block "content" . }}{{ end }}
+
+	{{ if not .IsHome }}
+		<footer class="footer">
+			<div class="container">
+				<div class="content has-text-centered">
+					<a class="icon" href="https://twitter.com/PolymapsMC" target="_blank" title="Tweet at us!">
+						<i class="fa fa-twitter"></i>
+					</a>
+				</div>
+			</div>
+		</footer>
+	{{ end }}
+
+	<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+	<script src="{{ .Site.BaseURL }}assets/js/main.js"></script>
+	{{ block "foot" . }}{{ end }}
+</body>
+
+</html>

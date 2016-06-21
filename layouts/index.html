@@ -1,0 +1,43 @@
+{{ define "content" }}
+	<section class="hero is-primary is-bold is-fullheight">
+		<div class="hero-body">
+			<div class="container has-text-centered">
+				<div class="columns">
+					<div class="column is-half is-offset-one-quarter">
+						<div class="level home-level">
+							<div class="level-item home-logo">
+								<figure class="image">
+									<img src="{{ .Site.BaseURL }}assets/images/logo.png" alt="Logo">
+								</figure>
+							</div>
+							<div class="level-item home-name">
+								<h1>
+									<figure class="image">
+										<img src="{{ .Site.BaseURL }}assets/images/polymaps.png" alt="Polymaps">
+									</figure>
+								</h1>
+								<h2 class="subtitle">
+									More than blocks<br />
+									A Minecraft Map-making Team
+								</h2>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="hero-foot">
+			<nav class="level home-menu">
+				{{ $baseURL := .Site.BaseURL }}
+				{{ range .Site.Menus.home }}
+					<a href="{{ .URL }}" class="level-item home-menu-item">
+						<figure class="image is-64x64">
+							<img src="{{ $baseURL }}assets/images/menu/{{ .Identifier }}.png" alt="{{ .Name }}">
+						</figure>
+						<span>{{ .Name }}</span>
+					</a>
+				{{ end }}
+			</nav>
+		</div>
+	</section>
+{{ end }}

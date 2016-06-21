@@ -1,0 +1,22 @@
+{{ define "hero" }}
+	<div class="hero-body">
+		<div class="container">
+			<h2 class="title is-1">{{ .Title }}</h2>
+			<div class="content">
+				{{ .Summary }}
+			</div>
+			<a href="mailto:{{ .Params.email }}">Touch our butts! {{ .Params.email }}</a>
+		</div>
+	</div>
+{{ end }}
+
+{{ define "content" }}
+	<section class="section">
+		<div class="container">
+			<div class="content">
+				<!-- this sucks for performance but the only working way... -->
+				{{ replace .Content .Summary "" | safeHTML }}
+			</div>
+		</div>
+	</section>
+{{ end }}

@@ -1,0 +1,16 @@
+{{ $avatar := .Path | replaceRE "\\.\\w+$" ".png" | replaceRE "\\\\" "/" | absURL }}
+<article class="media">
+	<figure class="media-left">
+		<a href="{{ .Permalink }}">
+			<figure class="image is-128x128">
+				<img src="{{ $avatar }}" alt="{{ .Title }}">
+			</figure>
+		</a>
+	</figure>
+	<div class="media-content">
+		<h2 class="title is-4"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+		<div class="content">
+			{{ .Summary }}
+		</div>
+	</div>
+</article>
